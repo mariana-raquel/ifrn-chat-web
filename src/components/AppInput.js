@@ -1,5 +1,13 @@
 import React from 'react';
-export const AppInput = ({ label, type, placeholder }) => (<div>
-    <label> {label} </label>
-    <input type={type} placeholder={placeholder}></input>
+import TextField from '@mui/material/TextField';
+
+export const AppInput = ({ label, type, title }) => (
+<div>
+    <TextField 
+        label={label}
+        type={type}
+        helperText={title}
+        fullWidth
+    />
+    
 </div>);

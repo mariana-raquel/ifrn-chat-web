@@ -1,4 +1,7 @@
 import React from 'react';
-export const AppButton = props => (<div>
-    <input type="submit" value={props.value}></input>
+import Button from '@mui/material/Button';
+
+export const AppButton = props => (
+<div>
+    <Button variant="contained" href={props.href}>{props.value}</Button>
 </div>);

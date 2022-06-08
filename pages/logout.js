@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
-import { AppContainer, AppInput, AppButton } from '../src/components';
+import Link from 'next/link';
+import { AppContainer, AppButton } from '../src/components';
 
 const Logout = props => {
     return (
@@ -10,7 +11,7 @@ const Logout = props => {
             </Head>
             <main>
                 <AppContainer>
-                    <AppButton value="Logout"></AppButton>
+                    <AppButton value="Logout" href="/login"></AppButton>
                 </AppContainer>
             </main>
         </div>
