@@ -1,2 +1,7 @@
 import React from 'react';
-export const AppContainer = props => <div> {props.children} </div>;
+import Container from '@mui/material/Container';
+
+export const AppContainer = props => 
+    <Container  sx = {{ margin : '10px'}}>
+        {props.children}
+    </Container>;

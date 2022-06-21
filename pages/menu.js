@@ -1,15 +1,17 @@
 import React from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
-import { AppContainer, AppButton } from '../src/components';
+import { useRouter } from 'next/router'
+import { AppContainer, AppButton} from '../src/components';
 
-const Logout = props => {
+const Login = props => {
+    const router = useRouter()
     return (
         <div>
             <Head>
-                <title> Logout </title>
+                <title> Menu </title>
             </Head>
             <main>
+                <h1> MENU </h1>
                 <AppContainer>
                     <AppButton value="Logout" href="/login"></AppButton>
                 </AppContainer>
@@ -18,4 +20,4 @@ const Logout = props => {
     );
 };
 
-export default Logout;
+export default Login;
