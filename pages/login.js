@@ -4,8 +4,8 @@ import { useRouter } from 'next/router'
 import { AppContainer, AppInput, AppButton} from '../src/components';
 
 const Login = props => {
-    const [userName, setUserName] = useState();
-    const [userPass, setUserPass] = useState();
+    const [userName, setUserName] = useState('');
+    const [userPass, setUserPass] = useState('');
 
     const handleChangeName = (event) => {
         setUserName(event.target.value);
@@ -14,7 +14,7 @@ const Login = props => {
         setUserPass(event.target.value);
     }
 
-    const router = useRouter()
+    const router = useRouter();
     return (
         <div>
             <Head>
@@ -24,14 +24,14 @@ const Login = props => {
                 <AppContainer>
                     <nav>
                         <p>Chat de Infoweb</p>
-                        <AppButton onClick={() => router.back()} value="Voltar"></AppButton>
+                        <AppButton onClick={() => router.back()} value="Voltar"/>
                     </nav>
                     <br></br><br></br>
-                    <AppInput label="Usuário:" type="text" title="Adicione seu usuário" value={userName} onChange={handleChangeName}></AppInput>
+                    <AppInput label="Usuário:" type="text" title="Adicione seu usuário" value={userName} onChange={handleChangeName}/>
                     <br></br>
-                    <AppInput label="Senha:" type="password" title="Adicione sua senha" value={userPass} onChange={handleChangePass}></AppInput>
+                    <AppInput label="Senha:" type="password" title="Adicione sua senha" value={userPass} onChange={handleChangePass}/>
                     <br></br>
-                    <AppButton href="/menu" value="Enviar"></AppButton>
+                    <AppButton variant="contained" href="/menu" value="Entrar no chat" disabled={!(!!userName && !!userPass)}/>
                 </AppContainer>
             </main>
         </div>
