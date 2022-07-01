@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Link from 'next/link';
+import { AppButton, AppContainer } from '../src/components';
 
 export default function Home() {
   return (
@@ -10,12 +10,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <AppContainer>
         <nav>
-          <p>Chat de Infoweb</p>
-          <Link href="/login"><button>login</button></Link>
+          <h1>Chat de Infoweb</h1>
+          <AppButton href="/login" color="secondary" value="Login"/>
         </nav>
-        <br></br><br></br>
-        <h1>Landing page do chat de Infoweb</h1>
+        <br></br>
+        <h3>Landing page do chat de Infoweb</h3>
+        </AppContainer>
       </main>
     </div>
   )

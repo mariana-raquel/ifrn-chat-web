@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
-import { useRouter } from 'next/router'
 import { AppContainer, AppInput, AppButton} from '../src/components';
 
 const Login = props => {
@@ -13,8 +12,6 @@ const Login = props => {
     const handleChangePass = (event) => {
         setUserPass(event.target.value);
     }
-
-    const router = useRouter();
     return (
         <div>
             <Head>
@@ -23,15 +20,15 @@ const Login = props => {
             <main>
                 <AppContainer>
                     <nav>
-                        <p>Chat de Infoweb</p>
-                        <AppButton onClick={() => router.back()} value="Voltar"/>
+                        <h1>Chat de Infoweb</h1>
+                        <AppButton variant="contained" color="success" href="/" value="Tela inicial"/>
                     </nav>
-                    <br></br><br></br>
+                    <br/>
                     <AppInput label="Usuário:" type="text" title="Adicione seu usuário" value={userName} onChange={handleChangeName}/>
                     <br></br>
                     <AppInput label="Senha:" type="password" title="Adicione sua senha" value={userPass} onChange={handleChangePass}/>
                     <br></br>
-                    <AppButton variant="contained" href="/menu" value="Entrar no chat" disabled={!(!!userName && !!userPass)}/>
+                    <AppButton variant="contained" href="/menu" value="Entrar no chat" disabled={!(!!userName && userPass.length >= 6)}/>
                 </AppContainer>
             </main>
         </div>
