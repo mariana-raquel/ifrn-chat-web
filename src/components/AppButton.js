@@ -2,13 +2,12 @@ import React from 'react';
 import Button from '@mui/material/Button';
 
 export const AppButton = props => {
-    let href_button = props.href ?? null;
-    let color_button = props.color ?? 'primary';
-    let handle_click = props.onClick ?? (() => null);
+    let href_button = props.href ? props.href : null;
+    let color_button = props.color ? props.color : 'primary';
+    let handle_click = props.onClick ? props.onClick : (() => null);
 
     return (
-        <Button 
-            variant="contained"
+        <Button
             href={href_button}
             color={color_button}
             title={props.title}

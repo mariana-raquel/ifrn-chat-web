@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import { AppContainer, AppInput, AppButton} from '../src/components';
+import { useRouter } from 'next/router';
 
 const Login = props => {
     const [userName, setUserName] = useState('');
@@ -12,6 +13,15 @@ const Login = props => {
     const handleChangePass = (event) => {
         setUserPass(event.target.value);
     }
+    
+    const router = useRouter();
+    const login = (name) => {
+        router.push({
+            pathname: "/menu",
+            query: {user: name, hash: "123"}
+        })
+    }
+
     return (
         <div>
             <Head>
@@ -28,7 +38,7 @@ const Login = props => {
                     <br></br>
                     <AppInput label="Senha:" type="password" title="Adicione sua senha" value={userPass} onChange={handleChangePass}/>
                     <br></br>
-                    <AppButton variant="contained" href="/menu" value="Entrar no chat" disabled={!(!!userName && userPass.length >= 6)}/>
+                    <AppButton variant="contained" onclick={(e)=> {login(name)}} href="/menu" value="Entrar no chat" disabled={!(!!userName && userPass.length >= 6)}/>
                 </AppContainer>
             </main>
         </div>
