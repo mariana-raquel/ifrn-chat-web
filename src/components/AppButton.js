@@ -8,6 +8,7 @@ export const AppButton = props => {
 
     return (
         <Button
+            sx = {{ margin : '10px'}}
             href={href_button}
             color={color_button}
             title={props.title}

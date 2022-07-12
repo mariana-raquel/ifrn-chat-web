@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -10,7 +10,12 @@ import { useRouter } from 'next/router';
 
 
 const LoginLogoutButton = (props) => {
-  return (<AppButton color="inherit" value="Login" href="/login"/>);   
+    if(props.login) {
+        return (<AppButton color="inherit" value="Login" href="/login"/>);   
+    }
+    else {
+        return (<AppButton color="inherit" value="Logout" onClick={(e)=> null}/>);   
+    }
 }
 
 const AppNavBar = props => {
@@ -30,13 +35,18 @@ const AppNavBar = props => {
 };
 
 export default function Menu() {
+    const [sessionId, setSessionId] = useState("");
+    const isUserLogged = () => (sessionId ? true : false);
     return (
         <div>
             <Head>
                 <title> Chat de Infoweb </title>
+                <meta name="description" content="Chat do curso de Infoweb" />
+                <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <AppNavBar title="Chat de Infoweb"/>
+                <AppNavBar title="Chat de Infoweb" userLogged={isUserLogged()}
+               logoutFunction={(e) => setSessionId("")}/>
                 <h1> LANDING PAGE DO CHAT DE INFOWEB</h1>
             </main>
         </div>
